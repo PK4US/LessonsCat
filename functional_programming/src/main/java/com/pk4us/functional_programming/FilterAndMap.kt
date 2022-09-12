@@ -1,16 +1,15 @@
-package com.pk4us.functional_programming.filter_and_map
+package com.pk4us.functional_programming
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.github.javafaker.Faker
-import com.pk4us.functional_programming.R
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class filter_and_map : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_filter_and_map)
 //        task1()
 //        task2()
 //        task3()
