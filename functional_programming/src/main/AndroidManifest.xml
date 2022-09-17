@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LessonsCat">
         <activity
+            android:name=".Modify"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".with_and_let"
             android:exported="true">
             <intent-filter>
