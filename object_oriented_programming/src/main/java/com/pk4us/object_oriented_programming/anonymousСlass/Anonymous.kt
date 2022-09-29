@@ -16,6 +16,7 @@ class Anonymous : AppCompatActivity() {
         task3(car)
 
         task4()
+        task5()
     }
 
     fun task1() {
@@ -27,7 +28,6 @@ class Anonymous : AppCompatActivity() {
 
     fun task2() {
         val car:Transport = Car()
-        val bicycle: Transport = Bicycle()
         if (car !is Car || car.startEngine()) return
     }
 
@@ -43,4 +43,10 @@ class Anonymous : AppCompatActivity() {
             }
         })
     }
+
+    fun task5() {
+        val sportsman = Sportsman()
+      sportsman.invokeWaterBoy { Log.d("MyLog", "Вода принесена") }
+    }
+
 }
