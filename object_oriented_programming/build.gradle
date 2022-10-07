@@ -29,6 +29,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.pk4us.object_oriented_programming'
 }
 
 dependencies {
