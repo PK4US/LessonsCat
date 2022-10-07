@@ -11,7 +11,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 
-class MainActivity : AppCompatActivity() {
+class CoinPriceListActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CoinViewModel
     private val compositeDisposable = CompositeDisposable()
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_coin_price_list)
 //        task1()
 
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
