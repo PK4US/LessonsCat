@@ -31,6 +31,9 @@ android {
         jvmTarget = '1.8'
     }
     namespace 'com.pk4us.cryptoapp'
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {

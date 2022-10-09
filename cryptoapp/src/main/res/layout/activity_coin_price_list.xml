@@ -6,17 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".CoinPriceListActivity">
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCoinPriceList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_coin_info">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/item_coin_info"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

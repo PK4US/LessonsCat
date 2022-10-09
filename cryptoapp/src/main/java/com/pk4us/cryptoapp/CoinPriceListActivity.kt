@@ -2,10 +2,17 @@ package com.pk4us.cryptoapp
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.RecyclerView
+import com.pk4us.cryptoapp.adapters.CoinInfoAdapter
 import com.pk4us.cryptoapp.api.ApiFactory
+import com.pk4us.cryptoapp.pojo.CoinPriceInfo
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -13,24 +20,27 @@ import io.reactivex.schedulers.Schedulers
 
 class CoinPriceListActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: CoinViewModel
     private val compositeDisposable = CompositeDisposable()
-
+    private lateinit var viewModel: CoinViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coin_price_list)
-//        task1()
 
+        val adapter = CoinInfoAdapter(this)
+        adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
+            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+                Log.d("MyLog", coinPriceInfo.fromSymbol)
+            }
+        }
+        val rvCoinPriceList = findViewById<RecyclerView>(R.id.rvCoinPriceList)
+
+        rvCoinPriceList.adapter = adapter
         viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
-//        viewModel.priceList.observe(this, Observer {
-//            Log.d("MyLog","Success in Activity: $it")
-//        })
-        viewModel.getDetailInfo("BTC").observe(this, Observer {
-            Log.d("MyLog","Success in Activity: $it")
+        viewModel.priceList.observe(this, Observer {
+            adapter.coinInfoList = it
         })
     }
-
 
 
 
