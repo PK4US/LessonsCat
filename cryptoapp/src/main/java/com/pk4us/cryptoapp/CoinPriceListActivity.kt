@@ -30,7 +30,11 @@ class CoinPriceListActivity : AppCompatActivity() {
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
-                Log.d("MyLog", coinPriceInfo.fromSymbol)
+                val intent = CoinDetailActivity.newIntent(
+                    this@CoinPriceListActivity,
+                    coinPriceInfo.fromSymbol
+                )
+                startActivity(intent)
             }
         }
         val rvCoinPriceList = findViewById<RecyclerView>(R.id.rvCoinPriceList)
